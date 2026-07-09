@@ -1,11 +1,11 @@
-import { customers } from '../mocks/customer.mock';
-import { CreateCustomer, Customer, UpdateCustomer} from '../types';
+import { customers } from '../mocks/customer.mock.ts';
+import type { CreateCustomer, Customer, UpdateCustomer } from '../types.ts';
 
-function findAllCustomers() {
+export function findAllCustomers() {
     return customers;
 }
 
-function findCustomersById(id: number) {
+export function findCustomersById(id: number) {
     const customer = customers.find((c) => c.id === id);
 
     if (!customer) throw new Error('Cliente não encontrado.');
@@ -13,7 +13,7 @@ function findCustomersById(id: number) {
     return customer;
 }
 
-function insertCustomer({name, email}: CreateCustomer) {
+export function insertCustomer({name, email}: CreateCustomer) {
     const customer: Customer = {
         id: customers[customers.length - 1].id +1,
         name: name,
@@ -26,7 +26,7 @@ function insertCustomer({name, email}: CreateCustomer) {
     return customer;
 }
 
-function modifyCustomer(id: number,
+export function modifyCustomer(id: number,
      {name, email, status}: UpdateCustomer    
 ) {
     const customer = customers.find((c) => c.id === id);
@@ -40,7 +40,7 @@ function modifyCustomer(id: number,
     return customer;
 }
 
-function removeCustomer(id: number): void {
+export function removeCustomer(id: number): void {
     const index = customers.findIndex((c) => c.id === id);
 
     if (index === -1) throw new Error('Cliente não encontrado.');
