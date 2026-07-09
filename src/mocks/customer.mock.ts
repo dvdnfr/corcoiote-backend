@@ -1,4 +1,4 @@
-import {Customer} from '../types';
+import type { Customer } from '../types.ts';
 export const customers: Customer [] = [
     { 
         id:1,
