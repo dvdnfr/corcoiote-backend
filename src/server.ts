@@ -1,12 +1,11 @@
 import express from 'express';
+import CustomerRouter from './routes/customer.router.ts'
 
 const app = express();
 
 app.use(express.json());
 
-app.get('/users', (_request, response) => {
-    response.status(200).json();
-});
+app.use('/customers', CustomerRouter);
 
 app.use((_request, response) => {
     response.status(404).json({message: 'Not found!'})
