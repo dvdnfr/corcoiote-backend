@@ -1,5 +1,5 @@
 import type { Invoice } from '../invoice.ts';
-export const invoice: Invoice [] = [
+export const invoices: Invoice [] = [
     {
         id:1,
         value: 'R$ 1,99',

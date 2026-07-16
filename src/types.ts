@@ -5,5 +5,25 @@ export type Customer = {
     status: boolean;
 };
 
+export type Invoice = {
+    id: number;
+    customerId: number;
+    amount: number;
+    dueDate: string;
+    status: string;
+};
+
+export type CreateInvoice = {
+    customerId: number;
+    amount: number;
+    dueDate: string;
+};
+
+export type UpdateInvoice = {
+    amount?: number;
+    dueDate?: string;
+    status?: string;
+};
+
 export type CreateCustomer = Omit<Customer, 'id' | 'status'>
 export type UpdateCustomer = Partial<Omit<Customer, 'id'>>;
