@@ -1,3 +1,4 @@
+import type { NotFoundError } from '../errors/index.ts'
 import { customers } from '../mocks/customer.mock.ts';
 import type { CreateCustomer, Customer, UpdateCustomer } from '../types.ts';
 
@@ -8,7 +9,7 @@ export function findAllCustomers() {
 export function findCustomersById(id: number) {
     const customer = customers.find((c) => c.id === id);
 
-    if (!customer) throw new Error('Cliente não encontrado.');
+    if (!customer) throw new Error(`Cliente de id ${id} não encontrado.`);
 
     return customer;
 }
