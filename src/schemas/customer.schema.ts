@@ -1,14 +1,16 @@
 import { z } from 'zod';
 
 export const createCustomerSchema = z.object({
-    name: z.string().min(1),
-    email: z.email()
+    name: z.string('Entrada inválida: esperava-se um texto.').min(1, 
+        'Muito curto: esperava-se um texto com pelo menos 1 caractere.'),
+    email: z.email('Endereço de e-mail inválido.')
 }); 
 
 export const updateCustomerSchema = z.object({
-    name: z.string().min(1).optional(),
-    email: z.email().optional(),
-    status: z.boolean().optional()
+    name: z.string('Entrada inválida: esperava-se um texto.').min(1, 
+        'Muito curto: esperava-se um texto com pelo menos 1 caractere.').optional(),
+    email: z.email('Endereço de e-mail inválido.').optional(),
+    status: z.boolean('Entrada inválida: esperava-se um booleano.').optional()
 }); 
  
     export type CreateCustomerInput = z.infer<typeof createCustomerSchema>;

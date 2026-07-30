@@ -25,3 +25,9 @@ export type UpdateInvoice = {
     status?: string;
 };
 
+export type ValidationFieldError = {
+    field: string;
+    message:string;
+};
+
+
